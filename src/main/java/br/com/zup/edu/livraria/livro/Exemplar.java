@@ -1,9 +1,16 @@
 package br.com.zup.edu.livraria.livro;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.OptimisticLockType;
+import org.hibernate.annotations.OptimisticLocking;
+
 import javax.persistence.*;
 
 @Entity
+@OptimisticLocking(type = OptimisticLockType.ALL)
+@DynamicUpdate
 public class Exemplar {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

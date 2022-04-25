@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 public class Livro {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,15 +17,12 @@ public class Livro {
     @Column(nullable = false)
     private String resumo;
 
-
     @Column(nullable = false)
     private String autor;
 
-
     @Column(nullable = false)
-    @org.hibernate.validator.constraints.ISBN(type = org.hibernate.validator.constraints.ISBN.Type.ANY)
+    @ISBN(type = org.hibernate.validator.constraints.ISBN.Type.ANY)
     private String ISBN;
-
 
     public Livro(String nome, String resumo, String autor, String ISBN) {
         this.nome = nome;
